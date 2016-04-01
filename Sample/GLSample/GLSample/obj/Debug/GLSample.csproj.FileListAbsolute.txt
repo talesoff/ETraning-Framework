@@ -1,0 +1,17 @@
+D:\ETraning Framework\Bin\GLSample.exe.config
+D:\ETraning Framework\Sample\GLSample\GLSample\obj\Debug\GLSample.csprojResolveAssemblyReference.cache
+D:\ETraning Framework\Sample\GLSample\GLSample\obj\Debug\MainWindow.baml
+D:\ETraning Framework\Sample\GLSample\GLSample\obj\Debug\MainWindow.g.cs
+D:\ETraning Framework\Sample\GLSample\GLSample\obj\Debug\SecondWindow.g.cs
+D:\ETraning Framework\Sample\GLSample\GLSample\obj\Debug\App.g.cs
+D:\ETraning Framework\Sample\GLSample\GLSample\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\ETraning Framework\Sample\GLSample\GLSample\obj\Debug\GLSample_MarkupCompile.cache
+D:\ETraning Framework\Sample\GLSample\GLSample\obj\Debug\GLSample_MarkupCompile.lref
+D:\ETraning Framework\Bin\GLSample.exe
+D:\ETraning Framework\Bin\GLSample.pdb
+D:\ETraning Framework\Sample\GLSample\GLSample\obj\Debug\SecondWindow.baml
+D:\ETraning Framework\Sample\GLSample\GLSample\obj\Debug\GLSample.g.resources
+D:\ETraning Framework\Sample\GLSample\GLSample\obj\Debug\GLSample.Properties.Resources.resources
+D:\ETraning Framework\Sample\GLSample\GLSample\obj\Debug\GLSample.csproj.GenerateResource.Cache
+D:\ETraning Framework\Sample\GLSample\GLSample\obj\Debug\GLSample.exe
+D:\ETraning Framework\Sample\GLSample\GLSample\obj\Debug\GLSample.pdb

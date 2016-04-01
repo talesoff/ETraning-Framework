@@ -1,0 +1,15 @@
+D:\ETraning Framework\Bin\Debug\RenderSample.exe.config
+D:\ETraning Framework\Bin\Debug\RenderSample.exe
+D:\ETraning Framework\Bin\Debug\RenderSample.pdb
+D:\ETraning Framework\Sample\RenderSample\RenderSample\obj\Debug\RenderSample.csprojResolveAssemblyReference.cache
+D:\ETraning Framework\Sample\RenderSample\RenderSample\obj\Debug\GLDrawWindow.baml
+D:\ETraning Framework\Sample\RenderSample\RenderSample\obj\Debug\MainWindow.baml
+D:\ETraning Framework\Sample\RenderSample\RenderSample\obj\Debug\GLDrawWindow.g.cs
+D:\ETraning Framework\Sample\RenderSample\RenderSample\obj\Debug\MainWindow.g.cs
+D:\ETraning Framework\Sample\RenderSample\RenderSample\obj\Debug\App.g.cs
+D:\ETraning Framework\Sample\RenderSample\RenderSample\obj\Debug\RenderSample_MarkupCompile.cache
+D:\ETraning Framework\Sample\RenderSample\RenderSample\obj\Debug\RenderSample.g.resources
+D:\ETraning Framework\Sample\RenderSample\RenderSample\obj\Debug\RenderSample.Properties.Resources.resources
+D:\ETraning Framework\Sample\RenderSample\RenderSample\obj\Debug\RenderSample.csproj.GenerateResource.Cache
+D:\ETraning Framework\Sample\RenderSample\RenderSample\obj\Debug\RenderSample.exe
+D:\ETraning Framework\Sample\RenderSample\RenderSample\obj\Debug\RenderSample.pdb

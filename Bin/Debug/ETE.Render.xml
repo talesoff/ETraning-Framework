@@ -1,0 +1,528 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ETE.Render</name>
+    </assembly>
+    <members>
+        <member name="T:ETE.Render.Command_Buffer.Command">
+            <summary>
+            커맨드의 원형.
+            </summary>
+        </member>
+        <member name="T:ETE.Render.Command_Buffer.CommandBuffer">
+            <summary>
+            커맨드 버퍼를 구성합니다.
+            </summary>
+        </member>
+        <member name="M:ETE.Render.Command_Buffer.CommandBuffer.DrawMesh(ETE.Render.Data.Mesh,ETE.Geometry.Matrix4x4,ETE.Render.Data.Material)">
+            <summary>
+            DrawMesh 커맨드를 추가합니다.
+            </summary>
+            <param name="_mesh">매쉬</param>
+            <param name="_matrix">변환행렬</param>
+            <param name="_material">재질</param>
+        </member>
+        <member name="M:ETE.Render.Command_Buffer.CommandBuffer.DrawRenderer(ETE.Geometry.Matrix4x4,ETE.Geometry.Bounds,System.Boolean,ETE.Render.Command_Buffer.RendererCommand.Renderfunc)">
+            <summary>
+            DrawRenderer 커맨드를 추가합니다.
+            </summary>
+            <param name="_transformMat">오브젝트의 변환행렬</param>
+            <param name="_bounds">경계의 크기</param>
+            <param name="_isTransparent">투명한 오브젝트인지 확인하는 플래그</param>
+            <param name="_renderfunc">Rendering 정보를 담고있는 콜백함수</param>
+        </member>
+        <member name="M:ETE.Render.Command_Buffer.CommandBuffer.NativePluginDraw(ETE.Render.Command_Buffer.RendererCommand.Renderfunc)">
+            <summary>
+            사용자 정의된 네이티프코드 플러그을 추가합니다.
+            </summary>
+            <param name="_callback">Rendering 정보를 담고있는 콜백함수</param>
+        </member>
+        <member name="T:ETE.Render.Command_Buffer.RendererCommand">
+            <summary>
+            사용자 정의형의 커맨드.
+            </summary>
+        </member>
+        <member name="T:ETE.Render.Component.Camera">
+            <summary>
+            카메라 컴포넌트.
+            </summary>
+        </member>
+        <member name="F:ETE.Render.Component.Camera.onPreCull">
+            <summary>
+            카메라가 컬링을 시작하기 전에 호출되는 이벤트 함수.
+            </summary>
+        </member>
+        <member name="F:ETE.Render.Component.Camera.onPreRender">
+            <summary>
+            카메라가 렌더링을 시작하기 전에 호출되는 이벤트 함수.
+            </summary>
+        </member>
+        <member name="F:ETE.Render.Component.Camera.onPostRender">
+            <summary>
+            카메라가 렌더링을 마친 후 호출되는 이벤트 함수.
+            </summary>
+        </member>
+        <member name="M:ETE.Render.Component.Camera.AddCommandBuffer(System.Int32,ETE.Render.Command_Buffer.CommandBuffer)">
+            <summary>
+            커맨드버퍼를 추가합니다. (아직 구현되지 않았습니다.(추후 구현시 업데이트 진행))
+            </summary>
+            <param name="order">렌더링 이벤트 순서</param>
+            <param name="cb">정의된 커맨드버퍼</param>
+        </member>
+        <member name="P:ETE.Render.Component.Camera.TargetDisplay">
+            <summary>
+            이 카메라의 대상 디스플레이를 설정합니다.
+            </summary>
+        </member>
+        <member name="P:ETE.Render.Component.Camera.BackGround_Color">
+            <summary>
+            카메라의 빈공간에 채워질 색을 나타냅니다.
+            </summary>
+        </member>
+        <member name="P:ETE.Render.Component.Camera.CameraOrder">
+            <summary>
+            카메라의 렌더링 순서를 정의합니다.
+            </summary>
+        </member>
+        <member name="P:ETE.Render.Component.Camera.Near">
+            <summary>
+            Near clipping plane 거리를 나타냅니다.
+            </summary>
+        </member>
+        <member name="P:ETE.Render.Component.Camera.Far">
+            <summary>
+            Far clipping plane 거리를 나타냅니다.
+            </summary>
+        </member>
+        <member name="P:ETE.Render.Component.Camera.FOV">
+            <summary>
+            카메라의 시야각을 나타내며 단위는 각도입니다.
+            </summary>
+        </member>
+        <member name="P:ETE.Render.Component.Camera.Aspect_Ratio">
+            <summary>
+            화면 비율(aspect ratio)을 나타냅니다. (넓이를 높이로 나눈 값)
+            </summary>
+        </member>
+        <member name="T:ETE.Render.Component.Camera.CameraCallback">
+            <summary>
+            카메라 콜백을 위한 델리게이트 타입.
+            </summary>
+            <param name="cam">현재 콜백을 실행하고 있는 카메라</param>
+        </member>
+        <member name="T:ETE.Render.Component.Light">
+            <summary>
+            광원효과를 정의합니다. (아직 구현되지 않았습니다.(추후 구현시 업데이트 진행))
+            </summary>
+        </member>
+        <member name="T:ETE.Render.Component.MeshFilter">
+            <summary>
+            메쉬 컴포넌트.
+            </summary>
+        </member>
+        <member name="P:ETE.Render.Component.MeshFilter.mesh">
+            <summary>
+            메쉬 필터에 할당된 메쉬를 반환합니다.
+            </summary>
+        </member>
+        <member name="P:ETE.Render.Component.MeshFilter.shadermesh">
+            <summary>
+            메쉬 필터에 할당된 공유 메쉬를 반환합니다.
+            </summary>
+        </member>
+        <member name="T:ETE.Render.Component.GTRenderer">
+            <summary>
+            GT Engine에서 사용할 Renderer의 원형입니다.
+            </summary>
+        </member>
+        <member name="T:ETE.Render.Component.Renderer">
+            <summary>
+            각 서브시스템별로 재정의해서 사용가능한 렌더러입니다.
+            </summary>
+        </member>
+        <member name="M:ETE.Render.Component.Renderer.Render(ETE.Render.Command_Buffer.CommandBuffer)">
+            <summary>
+            실제 렌더링될 커맨드 버퍼를 생성하는 메소드입니다.
+            cb.DrawRenderer() 를 통해 사용자가 정의한 OpenGL콜백을 등록할 수 있습니다.
+            현재 OpenGL/ES 2.0을 지원합니다.
+            </summary>
+            <param name="cb">렌더링될 커맨드버퍼</param>
+        </member>
+        <member name="P:ETE.Render.Component.GTRenderer.material">
+            <summary>
+            렌더링시 사용할 재질정보
+            </summary>
+        </member>
+        <member name="T:ETE.Render.Component.MeshRenderer">
+            <summary>
+            MeshFilter의 Mesh를 렌더링합니다.
+            Material을 통해 렌더링 속성을 제어할 수 있습니다.
+            </summary>
+        </member>
+        <member name="T:ETE.Render.Data.Material">
+            <summary>
+            재질
+            </summary>
+        </member>
+        <member name="P:ETE.Render.Data.Material.Ambient">
+            <summary>
+            머터리얼에서 사용되는 Ambient 색상을 나타냅니다.
+            </summary>
+        </member>
+        <member name="P:ETE.Render.Data.Material.Diffuse">
+            <summary>
+            머터리얼에서 사용되는 Diffuse 색상을 나타냅니다.
+            </summary>
+        </member>
+        <member name="P:ETE.Render.Data.Material.Specular">
+            <summary>
+            머터리얼에서 사용되는 Specular 색상을 나타냅니다.
+            </summary>
+        </member>
+        <member name="P:ETE.Render.Data.Material.Emission">
+            <summary>
+            머터리얼에서 사용되는 Emission 색상을 나타냅니다.
+            </summary>
+        </member>
+        <member name="P:ETE.Render.Data.Material.MainTexture">
+            <summary>
+            주 재질의 텍스쳐를 나타냅니다.
+            </summary>
+        </member>
+        <member name="P:ETE.Render.Data.Material.MainTextureOffset">
+            <summary>
+            메인 텍스쳐의 텍스쳐 오프셋을 나타냅니다.
+            </summary>
+        </member>
+        <member name="P:ETE.Render.Data.Material.mainTextureScale">
+            <summary>
+            메인 텍스쳐의 텍스쳐 스케일을 나타냅니다.
+            </summary>
+        </member>
+        <member name="P:ETE.Render.Data.Material.Shader">
+            <summary>
+            머터리얼에 사용되는 쉐이더.
+            </summary>
+        </member>
+        <member name="T:ETE.Render.Data.MeshTopology">
+            <summary>
+            메쉬의 토폴로지 정보.
+            보통의 경우에는 Triangles로 설정되어 있으나 유저의 필요시 
+            Quad, Lines, LineStrip, Points의 형태로 렌더링이 가능하다.
+            </summary>
+        </member>
+        <member name="T:ETE.Render.Data.Mesh">
+            <summary>
+            메쉬
+            </summary>
+        </member>
+        <member name="M:ETE.Render.Data.Mesh.#ctor">
+            <summary>
+            빈 메쉬를 생성합니다.
+            </summary>
+        </member>
+        <member name="M:ETE.Render.Data.Mesh.#ctor(System.String,System.String)">
+            <summary>
+            Mesh가 속한 File과 Mesh의 이름으로 Mesh를 생성합니다.
+            </summary>
+            <param name="_filePath"> Mesh File의 Path. </param>
+            <param name="_meshName"> Mesh의 이름 </param>
+        </member>
+        <member name="M:ETE.Render.Data.Mesh.getMeshName">
+            <summary>
+            Mesh의 이름을 반환합니다.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ETE.Render.Data.Mesh.Clear">
+            <summary>
+            모든 정점(vertex) 정보와 삼각면 인덱스정보를 지웁니다.
+            </summary>
+        </member>
+        <member name="M:ETE.Render.Data.Mesh.GetUVs(System.Int32,System.Collections.Generic.List{ETE.Geometry.Vector2})">
+            <summary>
+            채널에 해당하는 메쉬의 텍스쳐 좌표를 반환합니다.
+            </summary>
+            <param name="channel">uv의 채널</param>
+            <param name="uvs">반환할 텍스쳐 좌표의 리스트</param>
+        </member>
+        <member name="M:ETE.Render.Data.Mesh.SetVertices(System.Collections.Generic.List{ETE.Geometry.Vector3})">
+            <summary>
+            메쉬의 정점 리스트를 설정합니다.
+            </summary>
+            <param name="inVertices">정점의 리스트</param>
+        </member>
+        <member name="M:ETE.Render.Data.Mesh.SetNormals(System.Collections.Generic.List{ETE.Geometry.Vector3})">
+            <summary>
+            메쉬의 노멀 정보를 설정합니다.
+            </summary>
+            <param name="inNormals">노멀의 리스트</param>
+        </member>
+        <member name="M:ETE.Render.Data.Mesh.SetUVs(System.Int32,System.Collections.Generic.List{ETE.Geometry.Vector2})">
+            <summary>
+            채널에 해당하는 메쉬의 텍스쳐 좌표를 설정합니다.
+            </summary>
+            <param name="channel">uv의 채널</param>
+            <param name="uvs">설정할 텍스쳐 좌표의 리스트</param>
+        </member>
+        <member name="M:ETE.Render.Data.Mesh.SetColors(System.Collections.Generic.List{ETE.Geometry.Vector4})">
+            <summary>
+            메쉬의 정점 색상 정보를 설정합니다.
+            </summary>
+            <param name="inColors">색상 리스트</param>
+        </member>
+        <member name="M:ETE.Render.Data.Mesh.SetTangents(System.Collections.Generic.List{ETE.Geometry.Vector4})">
+            <summary>
+            메쉬의 접선 정보를 설정합니다.
+            </summary>
+            <param name="inTangents">접선 정보</param>
+        </member>
+        <member name="M:ETE.Render.Data.Mesh.SetIndices(System.Collections.Generic.List{System.UInt16},ETE.Render.Data.MeshTopology)">
+            <summary>
+            메쉬의 인덱스 리스트와 토폴로지를 설정합니다.
+            </summary>
+            <param name="inIndices">인덱스 리스트</param>
+            <param name="topology">토폴로지</param>
+        </member>
+        <member name="M:ETE.Render.Data.Mesh.MarkDynamic">
+            <summary>
+            메쉬가 자주 업데이트 되는지 설정합니다.
+            </summary>
+        </member>
+        <member name="M:ETE.Render.Data.Mesh.DirtyMeshData">
+            <summary>
+            수정된 메쉬 데이터를 GPU Memory에 반영합니다.
+            (메쉬 데이터 수정 후 Dirty가 일어나지 않으면 렌더링 되는 모델은 변하지 않을것입니다.)
+            (메쉬 데이터의 수정은 OnPreCull 메세지 이전까지의 데이터만 현재 프레임에 반영됩니다.)
+            </summary>
+        </member>
+        <member name="P:ETE.Render.Data.Mesh.bounds">
+            <summary>
+            메쉬 경계의 크기를 나타냅니다.
+            </summary>
+        </member>
+        <member name="P:ETE.Render.Data.Mesh.verticesCount">
+            <summary>
+            메쉬의 정점 수를 반환합니다. (읽기전용)
+            </summary>
+        </member>
+        <member name="P:ETE.Render.Data.Mesh.vertices">
+            <summary>
+            정점(vertext) 위치의 복사본을 반환하거나 새로운 정점 위치 배열을 할당합니다.
+            </summary>
+        </member>
+        <member name="P:ETE.Render.Data.Mesh.normals">
+            <summary>
+            메쉬의 노멀(normal)정보를 나타냅니다.
+            </summary>
+        </member>
+        <member name="P:ETE.Render.Data.Mesh.uv">
+            <summary>
+            메쉬의 기본 텍스쳐 좌표를 나타냅니다.
+            </summary>
+        </member>
+        <member name="P:ETE.Render.Data.Mesh.uv2">
+            <summary>
+            존재하는 경우에, 메쉬의 두번째 텍스쳐 좌표를 나타냅니다.
+            </summary>
+        </member>
+        <member name="P:ETE.Render.Data.Mesh.uv3">
+            <summary>
+            존재하는 경우에, 메쉬의 세번째 텍스쳐 좌표를 나타냅니다.
+            </summary>
+        </member>
+        <member name="P:ETE.Render.Data.Mesh.uv4">
+            <summary>
+            존재하는 경우에, 메쉬의 네번째 텍스쳐 좌표를 나타냅니다.
+            </summary>
+        </member>
+        <member name="P:ETE.Render.Data.Mesh.tangents">
+            <summary>
+            메쉬의 접선(tangent)을 나타냅니다. 아직 구현되지 않았습니다.(추후 구현시 업데이트 진행)
+            </summary>
+        </member>
+        <member name="P:ETE.Render.Data.Mesh.color">
+            <summary>
+            메쉬의 정점 색상정보를 나타냅니다. 아직 구현되지 않았습니다.(추후 구현시 업데이트 진행)
+            </summary>
+        </member>
+        <member name="P:ETE.Render.Data.Mesh.triangles">
+            <summary>
+            메쉬의 모든 삼각면(triangle)정보를 가지고 있는 배열을 나타냅니다.
+            </summary>
+        </member>
+        <member name="P:ETE.Render.Data.Mesh.indices">
+            <summary>
+            메쉬의 인덱스 정보를 가지고 있는 배열을 나타냅니다.
+            </summary>
+        </member>
+        <member name="P:ETE.Render.Data.Mesh.meshTopology">
+            <summary>
+            메쉬의 토폴로지 정보를 나타냅니다. 아직 구현되지 않았습니다.(추후 구현시 업데이트 진행)
+            초기치는 Triangles입니다.
+            </summary>
+        </member>
+        <member name="T:ETE.Render.Data.Shader">
+            <summary>
+            셰이더
+            </summary>
+        </member>
+        <member name="T:ETE.Render.Data.Texture">
+            <summary>
+            Texture (아직 구현되지 않았습니다.(추후 구현시 업데이트 진행))
+            </summary>
+        </member>
+        <member name="T:ETE.Render.Data.Texture2D">
+            <summary>
+            Texture2D (아직 구현되지 않았습니다.(추후 구현시 업데이트 진행))
+            </summary>
+        </member>
+        <member name="T:ETE.Render.EGL.GLUserControlManager">
+            <summary>
+            OpenGL 렌더링을 위한 유저컨트롤을 관리합니다.(WinForm)
+            </summary>
+        </member>
+        <member name="M:ETE.Render.EGL.GLUserControlManager.addGLUserControl(System.Int32)">
+            <summary>
+            GL을 렌더링하기 위한 WinForm유저 컨트롤을 추가합니다.
+            </summary>
+            <param name="_targetNumber">타겟 번호는 Camera, EGLSubsystem, GLUserControlManager가 동일해야합니다.</param>
+            <returns>추가된 유저 컨트롤을 반환합니다.</returns>
+        </member>
+        <member name="M:ETE.Render.EGL.GLUserControlManager.getGLUserControlCount">
+            <summary>
+            현재 GLUserControl의 개수를 반환합니다.
+            </summary>
+            <returns>현재 GLUserControl의 개수</returns>
+        </member>
+        <member name="M:ETE.Render.EGL.GLUserControlManager.getTargetNumbers">
+            <summary>
+            현재 유지되고있는 TargetNumber의 Array를 반환합니다.
+            </summary>
+            <returns>TargetNumber의 Array</returns>
+        </member>
+        <member name="M:ETE.Render.EGL.GLUserControlManager.getGLUserControl(System.Int32)">
+            <summary>
+            해당 타겟 번호의 유저 컨트롤을 반환합니다.
+            </summary>
+            <param name="_targetNumber">타겟 번호는 Camera, EGLSubsystem, GLUserControlManager가 동일해야합니다.</param>
+            <returns>유저 컨트롤을 반환합니다.</returns>
+        </member>
+        <member name="M:ETE.Render.EGL.GLUserControlManager.getGLUserControlHandle(System.Int32)">
+            <summary>
+            해당 타겟 번호의 유저 컨트롤의 핸들을 반환합니다.
+            </summary>
+            <param name="_targetNumber">타겟 번호는 Camera, EGLSubsystem, GLUserControlManager가 동일해야합니다.</param>
+            <returns>유저 컨트롤의 핸들</returns>
+        </member>
+        <member name="P:ETE.Render.EGL.GLUserControlManager.Instance">
+            <summary>
+            GLUserControlManager 클래스의 인스턴스를 반환합니다.(이 경로를 통해서만 해당 클래스에 접근할 수 있습니다.)
+            </summary>
+        </member>
+        <member name="T:ETE.Render.Data.RenderAsset">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:ETE.Render.Data.RenderAsset.getRenderAsset">
+            <summary>
+            RenderAsset 객체를 제공
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:ETE.Render.Data.RenderAsset.GetMetaObjectsOfTypeAll(System.String,System.Type)">
+            <summary>
+            파일에서 제공하는 지정 타입의 모든 메타 객체를 줌
+            </summary>
+            <param name="path">파일경로와 파일명를 포함하는 full path</param>
+            <param name="type">Mesh / Material / Shader 중 하나의 타입</param>
+            <returns>MeshObject 객체를 리턴함. 리턴할 정보가 없는 경우 null 임</returns>
+        </member>
+        <member name="M:ETE.Render.Data.RenderAsset.GetObjectsOfTypeAll(System.Type)">
+            <summary>
+            현재 로드된 해당 타입의 모든 객체를 제공
+            </summary>
+            <param name="type">Mesh / Material / Shader 중 하나의 타입</param>
+            <returns>해당 타입의 모든 객체를 리턴함. 리턴할 정보가 없는 경우 null 임</returns>
+        </member>
+        <member name="M:ETE.Render.Data.RenderAsset.Load(System.String)">
+            <summary>
+            지정한 파일을 로드함
+            GTM 파일과 SH 파일만 로드할 수 있음
+            </summary>
+            <param name="path">파일 경로를 포함한 파일명</param>
+        </member>
+        <member name="M:ETE.Render.Data.RenderAsset.Load(System.String,System.Type)">
+            <summary>
+            지정한 파일을 로드함
+            GTM 파일과 SH 파일만 로드할 수 있음
+            </summary>
+            <param name="path">파일 경로를 포함한 파일명</param>
+            <param name="type">로드하고자 하는 객체 타입</param>
+            <returns>지정한 파일에서 해당 타입의 모든 객체를 리턴함. 리턴할 정보가 없는 경우 null 임</returns>
+        </member>
+        <member name="M:ETE.Render.Data.RenderAsset.Load(System.String,System.Type,System.String)">
+            <summary>
+            지정한 파일을 로드함
+            GTM 파일과 SH 파일만 로드할 수 있음
+            </summary>
+            <param name="path">파일 경로를 포함한 파일명</param>
+            <param name="type">로드하고자 하는 객체 타입</param>
+            <param name="instanceName">객체 이름</param>
+            <returns>지정한 파일에서 해당 타입/해당 이름의 객체를 리턴함. 리턴할 정보가 없는 경우 null 임</returns>
+        </member>
+        <member name="P:ETE.Render.Data.RenderAsset.available">
+            <summary>
+            RenderAsset이 유효한 상태인지를 알려줌 (읽기 전용)
+            </summary>
+        </member>
+        <member name="T:ETE.Render.Processor.CameraProcess">
+            <summary>
+            렌더링을 위한 프로세스입니다.
+            카메라들을 제어하여 렌더링 할 최종 커맨드버퍼를 생성합니다.
+            </summary>
+        </member>
+        <member name="T:ETE.Render.Processor.EGLSwapBuffersSubsystem">
+            <summary>
+            EGL제어를 위한 서브시스템입니다.
+            OpenGL렌더링의 최종 결과물을 화면에 SwapBuffer 시켜줍니다.
+            OpenGL렌더링을 위한 서브시스템은 EGLSubsystem과 EGLSwapBuffersSubsystem 사이에 위치하여야합니다.
+            GraphicsSubsystem에서 Clear를 실행하여 화면을 지우기 때문에
+            EGLSubsystem - GraphicsSubsystem - 사용자 렌더링 Subsystem(non Clear) - EGLSwapBufferSubsystem의 순서로 View를 구성하시면 됩니다.
+            </summary>
+        </member>
+        <member name="T:ETE.Render.Processor.EGLSubsystem">
+            <summary>
+            EGL제어를 위한 서브시스템입니다.
+            OpenGL렌더링을 위한 Context를 활성화시킵니다.
+            OpenGL렌더링을 위한 서브시스템은 EGLSubsystem과 EGLSwapBuffersSubsystem 사이에 위치하여야합니다.
+            GraphicsSubsystem에서 Clear를 실행하여 화면을 지우기 때문에
+            EGLSubsystem - GraphicsSubsystem - 사용자 렌더링 Subsystem(non Clear) - EGLSwapBufferSubsystem의 순서로 View를 구성하시면 됩니다.
+            </summary>
+        </member>
+        <member name="P:ETE.Render.Processor.EGLSubsystem.TargetDisplay">
+            <summary>
+            타겟 번호는 Camera, EGLSubsystem, GLUserControlManager가 동일해야합니다.
+            </summary>
+        </member>
+        <member name="T:ETE.Render.Processor.GraphicsSubsystem">
+            <summary>
+            실제 렌더링이 일어나는 서브시스템입니다.
+            OpenGL렌더링을 위한 서브시스템은 EGLSubsystem과 EGLSwapBuffersSubsystem 사이에 위치하여야합니다.
+            GraphicsSubsystem에서 Clear를 실행하여 화면을 지우기 때문에
+            EGLSubsystem - GraphicsSubsystem - 사용자 렌더링 Subsystem(non Clear) - EGLSwapBufferSubsystem의 순서로 View를 구성하시면 됩니다.
+            </summary>
+        </member>
+        <member name="T:ETE.Render.Setting.RenderingSetting">
+            <summary>
+            아직 구현되지 않았습니다.(추후 구현시 업데이트 진행)
+            </summary>
+        </member>
+        <member name="T:ETE.Render.Setting.ThreadSetting">
+            <summary>
+            아직 구현되지 않았습니다.(추후 구현시 업데이트 진행)
+            </summary>
+        </member>
+    </members>
+</doc>

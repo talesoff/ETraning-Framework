@@ -1,0 +1,42 @@
+﻿Build started 2016-03-25 오후 3:43:55.
+     1>Project "D:\ETraning Framework\Sample\GLSample\GLNative\GLNative.vcxproj" on node 3 (Rebuild target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /I"D:\ETraning Framework\Sample\GLSample\Library\PowerVR\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D GLNATIVE_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yc"stdafx.h" /Fp"Debug\GLNative.pch" /Fo"Debug\\" /Fd"Debug\vc140.pdb" /FR"Debug\\" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /I"D:\ETraning Framework\Sample\GLSample\Library\PowerVR\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D GLNATIVE_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /FR"Debug\\" /Gd /TP /analyze- /errorReport:prompt dllmain.cpp
+         dllmain.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /I"D:\ETraning Framework\Sample\GLSample\Library\PowerVR\include" /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _USRDLL /D GLNATIVE_EXPORTS /D _WINDLL /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yu"stdafx.h" /Fp"Debug\GLNative.pch" /Fo"Debug\\" /Fd"Debug\vc140.pdb" /FR"Debug\\" /Gd /TP /analyze- /errorReport:prompt EGLNative.cpp GeometryNative.cpp GLNative.cpp TextNative.cpp
+         TextNative.cpp
+         GLNative.cpp
+         GeometryNative.cpp
+         EGLNative.cpp
+         Generating Code...
+       ResourceCompile:
+         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe /D _UNICODE /D UNICODE /l"0x0409" /nologo /fo"Debug\GLNative.res" GLNative.rc 
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"D:\ETraning Framework\Sample\GLSample\GLNative\..\..\..\Bin\Debug\GLNative.dll" /INCREMENTAL /NOLOGO /LIBPATH:"D:\ETraning Framework\Sample\GLSample\Library\PowerVR\lib" libEGL.lib libGLESv2.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"D:\ETraning Framework\Sample\GLSample\GLNative\..\..\..\Bin\Debug\GLNative.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"D:\ETraning Framework\Sample\GLSample\GLNative\..\..\..\Bin\Debug\GLNative.lib" /MACHINE:X86 /DLL Debug\GLNative.res
+         Debug\dllmain.obj
+         Debug\EGLNative.obj
+         Debug\GeometryNative.obj
+         Debug\GLNative.obj
+         Debug\stdafx.obj
+         Debug\TextNative.obj
+            Creating library D:\ETraning Framework\Sample\GLSample\GLNative\..\..\..\Bin\Debug\GLNative.lib and object D:\ETraning Framework\Sample\GLSample\GLNative\..\..\..\Bin\Debug\GLNative.exp
+         GLNative.vcxproj -> D:\ETraning Framework\Sample\GLSample\GLNative\..\..\..\Bin\Debug\GLNative.dll
+       BscMake:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\bscmake.exe /nologo /o"D:\ETraning Framework\Sample\GLSample\GLNative\..\..\..\Bin\Debug\GLNative.bsc" /n Debug\dllmain.sbr Debug\EGLNative.sbr Debug\GeometryNative.sbr Debug\GLNative.sbr Debug\stdafx.sbr Debug\TextNative.sbr
+       PostBuildEvent:
+         copy "D:\ETraning Framework\Sample\GLSample\GLNative\..\..\..\Bin\Debug\GLNative.*" "D:\ETraning Framework\Sample\GLSample\GLNative\..\..\..\Bin\Debug\..\"
+         :VCEnd
+         D:\ETraning Framework\Sample\GLSample\GLNative\..\..\..\Bin\Debug\GLNative.bsc
+         D:\ETraning Framework\Sample\GLSample\GLNative\..\..\..\Bin\Debug\GLNative.dll
+         D:\ETraning Framework\Sample\GLSample\GLNative\..\..\..\Bin\Debug\GLNative.exp
+         D:\ETraning Framework\Sample\GLSample\GLNative\..\..\..\Bin\Debug\GLNative.ilk
+         D:\ETraning Framework\Sample\GLSample\GLNative\..\..\..\Bin\Debug\GLNative.lib
+         D:\ETraning Framework\Sample\GLSample\GLNative\..\..\..\Bin\Debug\GLNative.pdb
+                 6개 파일이 복사되었습니다.
+     1>Done Building Project "D:\ETraning Framework\Sample\GLSample\GLNative\GLNative.vcxproj" (Rebuild target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:03.11

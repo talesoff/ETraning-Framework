@@ -1,0 +1,778 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>ETE.Engine</name>
+    </assembly>
+    <members>
+        <member name="T:ETE.Engine.Scheduler">
+            <summary>
+            장면에 실행 주기를 제공한다.
+            </summary>
+        </member>
+        <member name="M:ETE.Engine.Scheduler.Start">
+            <summary>
+            스케줄러 시작
+            </summary>
+        </member>
+        <member name="M:ETE.Engine.Scheduler.Stop">
+            <summary>
+            스케줄러 정지
+            </summary>
+        </member>
+        <member name="M:ETE.Engine.Scheduler.Pause">
+            <summary>
+            스케줄러 일시 정지
+            </summary>
+        </member>
+        <member name="M:ETE.Engine.Scheduler.Resume">
+            <summary>
+            스케줄러 다시 시작
+            </summary>
+        </member>
+        <member name="M:ETE.Engine.Scheduler.Run(System.Action)">
+            <summary>
+            스케줄러 스레드에서 작업을 실행. 호출 스레드와 스케줄러 스레드가 서로 다르면 비동기로 실행.
+            </summary>
+            <param name="act">작업</param>
+        </member>
+        <member name="M:ETE.Engine.Scheduler.RunAsync(System.Action)">
+            <summary>
+            스케줄러 스레드에서 비동기로 작업을 실행
+            </summary>
+            <param name="act">작업</param>
+        </member>
+        <member name="M:ETE.Engine.Scheduler.AddRepetitionTask(System.Action)">
+            <summary>
+            스케줄러에서 작업을 반복 실행
+            </summary>
+            <param name="task">작업</param>
+        </member>
+        <member name="M:ETE.Engine.Scheduler.RemoveRepetitionTask(System.Action)">
+            <summary>
+            스케줄러에서 실행중인 반복 작업을 삭제
+            </summary>
+            <param name="task">삭제할 반복 작업</param>
+        </member>
+        <member name="M:ETE.Engine.Scheduler.RemoveAllTask">
+            <summary>
+            추가된 모든 작업을 삭제
+            </summary>
+        </member>
+        <member name="P:ETE.Engine.Scheduler.Interval">
+            <summary>
+            스케쥴러 갱신 주기(Millisecond)
+            </summary>
+        </member>
+        <member name="P:ETE.Engine.Scheduler.HasThreadAccess">
+            <summary>
+            현재 작업 중인 스레드와 스케줄러 스레드가 동일 스레드인지 확인
+            </summary>
+        </member>
+        <member name="T:ETE.Engine.Behavior">
+            <summary>
+            시뮬레이션 객체의 행동/행위를 정의한다.
+            </summary>
+        </member>
+        <member name="T:ETE.Engine.Component">
+            <summary>
+            시뮬레이션 객체의 특성을 정의한다.
+            </summary>
+        </member>
+        <member name="T:ETE.Engine.EObject">
+            <summary>
+            시뮬레이션 엔진에서 사용되는 모든 객체의 기본 클래스.
+            </summary>
+        </member>
+        <member name="M:ETE.Engine.EObject.GetInstanceID">
+            <summary>
+            오브젝트의 고유 번호.
+            </summary>
+        </member>
+        <member name="M:ETE.Engine.EObject.Destroy(ETE.Engine.EObject,System.Single)">
+            <summary>
+            오브젝트를 삭제.
+            </summary>
+            <param name="obj">삭제할 오브젝트</param>
+            <param name="delayTime">삭제 대기 시간(Second)</param>
+        </member>
+        <member name="M:ETE.Engine.EObject.DestroyImmediate(ETE.Engine.EObject)">
+            <summary>
+            오브젝트 바로 삭제.
+            </summary>
+            <param name="obj">삭제할 오브젝트</param>
+        </member>
+        <member name="M:ETE.Engine.EObject.op_Implicit(ETE.Engine.EObject)~System.Boolean">
+            <summary>
+            오브젝트가 장면에서 유효한지 검사.
+            </summary>
+            <param name="exists">유효 여부</param>
+        </member>
+        <member name="M:ETE.Engine.EObject.NotifyPropertyChanged(System.String)">
+            <summary>
+            속성의 값이 변경되었음을 클라이언트(대게 바인딩하는 리스너)에 알리는 데 사용합니다.
+            </summary>
+            <param name="propertyName">변경된 속성의 이름</param>
+        </member>
+        <member name="P:ETE.Engine.EObject.Name">
+            <summary>
+            오브젝트의 이름.
+            </summary>
+        </member>
+        <member name="E:ETE.Engine.EObject.PropertyChanged">
+            <summary>
+            속성의 값이 변경될 때 발생합니다.
+            </summary>
+        </member>
+        <member name="M:ETE.Engine.Component.GetComponent``1">
+            <summary>
+            컴포넌트 검색
+            </summary>
+            <typeparam name="T">컴포넌트의 타입</typeparam>
+            <returns>컴포넌트 인스턴스</returns>
+        </member>
+        <member name="M:ETE.Engine.Component.GetComponents``1">
+            <summary>
+            컴포넌트 검색
+            </summary>
+            <typeparam name="T">컴포넌트의 타입</typeparam>
+            <returns>컴포넌트 인스턴스의 리스트</returns>
+        </member>
+        <member name="M:ETE.Engine.Component.SendMessage(System.String,System.Object)">
+            <summary>
+            시뮬레이션 객체의 모든 UserComponent들에 대해 eventName으로 이름지어진 메소드를 호출
+            </summary>
+            <param name="messageName">호출할 메소드 이름</param>
+            <param name="param">메소드에 대한 임의의 값</param>
+        </member>
+        <member name="P:ETE.Engine.Component.Tag">
+            <summary>
+            태그
+            </summary>
+        </member>
+        <member name="P:ETE.Engine.Behavior.Enabled">
+            <summary>
+            Behavior의 활성화 여부.
+            </summary>
+        </member>
+        <member name="T:ETE.Engine.PropertyChangedEventArgs">
+            <summary>
+            PropertyChanged 이벤트에 대한 데이터를 제공합니다.
+            </summary>
+        </member>
+        <member name="M:ETE.Engine.PropertyChangedEventArgs.#ctor(System.String)">
+            <summary>
+            클래스의 새 인스턴스를 초기화합니다.
+            </summary>
+            <param name="propertyName"></param>
+        </member>
+        <member name="P:ETE.Engine.PropertyChangedEventArgs.PropertyName">
+            <summary>
+            변경된 속성의 이름
+            </summary>
+        </member>
+        <member name="T:ETE.Engine.PropertyChangedEventHandler">
+            <summary>
+            구성 요소에서 속성이 변경될 때 발생하는 PropertyChanged 이벤트를 처리할 메서드를 나타냅니다.
+            </summary>
+            <param name="sender">이벤트 소스</param>
+            <param name="e">이벤트 데이터</param>
+        </member>
+        <member name="T:ETE.Engine.Processor">
+            <summary>
+            시뮬레이션 엔진에서 로직을 처리하는 서브시스템의 기본 클래스.
+            서브시스템 집합을 통해 단위 컴포넌트와 코어 엔진을 조작한다.
+            </summary>
+        </member>
+        <member name="M:ETE.Engine.Processor.Awake">
+            <summary>
+            시작 직전 이벤트
+            </summary>
+        </member>
+        <member name="M:ETE.Engine.Processor.Start">
+            <summary>
+            시작 이벤트
+            </summary>
+        </member>
+        <member name="M:ETE.Engine.Processor.Process">
+            <summary>
+            실행 이벤트
+            </summary>
+        </member>
+        <member name="M:ETE.Engine.Processor.Destroy">
+            <summary>
+            종료 이벤트
+            </summary>
+        </member>
+        <member name="M:ETE.Engine.Processor.Asleep">
+            <summary>
+            종료 직후 이벤트
+            </summary>
+        </member>
+        <member name="T:ETE.Engine.ComponentImporter">
+            <summary>
+            컴포넌트 실행 우선순위 관리합니다.
+            일반 컴포넌트의 기본 우선순위는 0, 사용자 컴포넌트의 기본 우선순위는 100입니다.
+            </summary>
+        </member>
+        <member name="M:ETE.Engine.ComponentImporter.SetExecutionOrder(System.Type,System.Int32)">
+            <summary>
+            컴포넌트에 생명주기 메시지를 전송 순서를 지정합니다.
+            일반 컴포넌트는 -100 미만 또는 +100 초과 범위를 지정할 수 있습니다.
+            사용자 컴포넌트(UserBehavior)는 -100 이상 +100 이하 범위를 지정할 수 있습니다.
+            </summary>
+            <param name="type">컴포넌트의 타입</param>
+            <param name="order">우선순위</param>
+        </member>
+        <member name="M:ETE.Engine.ComponentImporter.GetExecutionOrder(System.Type)">
+            <summary>
+            우선순위를 조회합니다.
+            </summary>
+            <param name="type">컴포넌트 타입</param>
+            <returns>컴포넌트 생명주기 우선순위</returns>
+        </member>
+        <member name="T:ETE.Engine.Core.ComponentTree`1">
+            <summary>
+            Class의 상속 계층 정보를 사용하여 트리를 만든다.
+            Tree의 각 노드는 Class의 Type이다.
+            각 노드에는 노드 Type에 해당하는 객체의 리스트를 가지고 있다.
+            </summary>
+        </member>
+        <member name="T:ETE.Engine.IEventAggregator">
+            <summary>
+            서브시스템에서 컴포넌트로 이벤트를 전달하기위한 인터페이스.
+            </summary>
+        </member>
+        <member name="M:ETE.Engine.IEventAggregator.PublishMessage``1(System.String,System.Object)">
+            <summary>
+            장면에 구성된 컴포넌트 중 타입에 해당하는 모든 컴포넌트에 messageName으로 이름지어진 메소드를 호출
+            </summary>
+            <typeparam name="T">컴포넌트 타입</typeparam>
+            <param name="messageName">호출할 메소드 이름</param>
+            <param name="param">메소드에 대한 임의의 값</param>
+        </member>
+        <member name="M:ETE.Engine.IEventAggregator.PublishMessage(ETE.Engine.Component,System.String,System.Object)">
+            <summary>
+            장면에 포함된 임의의 컴포넌트에 messageName으로 이름지어진 메소드를 호출
+            </summary>
+            <param name="com">컴포넌트</param>
+            <param name="messageName">호출할 메소드 이름</param>
+            <param name="param">메소드에 대한 임의의 값</param>
+        </member>
+        <member name="T:ETE.Engine.MultipleComponentAttribute">
+            <summary>
+            한개의 SimulationObject에는 동일 형식의 Component는 한 개만 추가할 수 있습니다.
+            동일 형식의 Component를 여러 개 추가하려면 Compoent class는 MultipleComponentAttribute를 선언해야 합니다.
+            사용법:
+                [MultipleComponent(Allow = true)]
+                public class MyComponent : Component
+                {
+                    ...
+                }
+            </summary>
+        </member>
+        <member name="T:ETE.Engine.Scene">
+            <summary>
+            시뮬레이션 엔진에서 화면을 구성하는 단위.
+            </summary>
+        </member>
+        <member name="M:ETE.Engine.Scene.AddObject">
+            <summary>
+            장면에 새로운 시뮬레이션 객체를 추가.
+            </summary>
+            <returns>시뮬레이션 객체</returns>
+        </member>
+        <member name="M:ETE.Engine.Scene.AddProcessor``1">
+            <summary>
+            새로운 서브시스템을 추가
+            </summary>
+            <typeparam name="T">서브시스템의 타입</typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:ETE.Engine.Scene.Start">
+            <summary>
+            장면 시작
+            </summary>
+        </member>
+        <member name="M:ETE.Engine.Scene.Stop">
+            <summary>
+            장면 종료
+            </summary>
+        </member>
+        <member name="M:ETE.Engine.Scene.GetRootSimulationObjects">
+            <summary>
+            루트 시뮬레이션 객체들
+            </summary>
+            <returns>루트 시뮬레이션 객체 리스트</returns>
+        </member>
+        <member name="M:ETE.Engine.Scene.Find(System.String)">
+            <summary>
+            이름으로 시뮬레이션 객체 검색
+            </summary>
+            <param name="name">이름</param>
+            <returns>시뮬레이션 객체</returns>
+        </member>
+        <member name="M:ETE.Engine.Scene.FindSimulationObjectsWithTag(System.String)">
+            <summary>
+            태그로 시뮬레이션 객체 전체 검색
+            </summary>
+            <param name="tag">태그</param>
+            <returns>시뮬레이션 객체 리스트</returns>
+        </member>
+        <member name="M:ETE.Engine.Scene.FindWithTag(System.String)">
+            <summary>
+            태그로 시뮬레이션 객체 검색
+            </summary>
+            <param name="tag">태그</param>
+            <returns>시뮬레이션 객체</returns>
+        </member>
+        <member name="M:ETE.Engine.Scene.FindObjectOfType``1">
+            <summary>
+            타입으로 오브젝트 검색
+            </summary>
+            <typeparam name="T">오브젝트 타입</typeparam>
+            <returns>오브젝트</returns>
+        </member>
+        <member name="M:ETE.Engine.Scene.FindObjectsOfType``1">
+            <summary>
+            타입으로 오브젝트 검색
+            </summary>
+            <typeparam name="T">오브젝트 타입</typeparam>
+            <returns>오브젝트의 리스트</returns>
+        </member>
+        <member name="P:ETE.Engine.Scene.RootCount">
+            <summary>
+            루트 트랜스폼 수
+            </summary>
+        </member>
+        <member name="T:ETE.Engine.MessageHandlerAttribute">
+            <summary>
+            Component를 상속받는 모든 클래스의 Method 중 void Func(void) 또는 void Func(T t) 형식의 Method는 XXXXMessage로 호출할 수 있습니다.
+            이런 방식으로 호출할 메소드에는 MessageHandlerAttribute를 선언해야합니다.
+            사용법:
+                public class MyClass : Component
+                {
+                    ...
+                    [MessageHandler]
+                    void MyMethod();
+                    
+                    [MessageHandler]
+                    void MyMethod(int i);
+                }
+            </summary>
+        </member>
+        <member name="P:ETE.Engine.MessageHandlerAttribute.Allow">
+            <summary>
+            관리자에 현재 Handler를 등록할지 결정합니다. 기본값은 true
+            </summary>
+        </member>
+        <member name="T:ETE.Engine.ISerializer">
+            <summary>
+            객체를 메모리, 데이터베이스, 파일로 저장하기 위해서는 바이트의 스트림으로 변환합니다.
+            필요할 때 객체를 다시 만들 수 있도록 객체의 상태를 저장하는 것이 주된 목적입니다.
+            ETE.Engine 객체를 스트림으로 변환하기 위해서 ISerializer를 구현하여 사용합니다.
+            </summary>
+        </member>
+        <member name="M:ETE.Engine.ISerializer.Serialize``1(``0)">
+            <summary>
+            객체를 바이트 스트림으로 변환
+            </summary>
+            <typeparam name="T">저장할 객체의 타입</typeparam>
+            <param name="obj">저장할 객체</param>
+        </member>
+        <member name="M:ETE.Engine.ISerializer.Deserialze``1">
+            <summary>
+            바이트 스트림에서 객체를 생성
+            </summary>
+            <typeparam name="T">생성할 객체의 타입</typeparam>
+            <returns>생성한 객체</returns>
+        </member>
+        <member name="T:ETE.Engine.SimulationObject">
+            <summary>
+            장면에 필요한 구성 요소를 제공하는 기본 클래스.
+            </summary>
+        </member>
+        <member name="F:ETE.Engine.SimulationObject.comTree">
+            <summary>
+            고속 검색용 Tree
+            </summary>
+        </member>
+        <member name="M:ETE.Engine.SimulationObject.AddComponent``1">
+            <summary>
+            새로운 컴포넌트 추가
+            </summary>
+            <typeparam name="T">컴포넌트 타입</typeparam>
+            <returns>새로 추가된 컴포넌트</returns>
+        </member>
+        <member name="M:ETE.Engine.SimulationObject.GetComponent``1">
+            <summary>
+            컴포넌트 검색
+            </summary>
+            <typeparam name="T">컴포넌트 타입</typeparam>
+            <returns>검색된 컴포넌트. 없으면 null</returns>
+        </member>
+        <member name="M:ETE.Engine.SimulationObject.GetComponents``1">
+            <summary>
+            컴포넌트 그룹 검색
+            </summary>
+            <typeparam name="T">컴포넌트 타입</typeparam>
+            <returns>컴포넌트 그룹</returns>
+        </member>
+        <member name="M:ETE.Engine.SimulationObject.SendMessage(System.String,System.Object)">
+            <summary>
+            시뮬레이션 객체의 모든 UserComponent들에 대해 eventName으로 이름지어진 메소드를 호출.
+            </summary>
+            <param name="messageName">호출할 메소드 이름</param>
+            <param name="param">메소드에 대한 임의의 값</param>
+        </member>
+        <member name="M:ETE.Engine.SimulationObject.SetActive(System.Boolean)">
+            <summary>
+            시뮬레이션 객체 활성화
+            </summary>
+            <param name="active">활성화 여부</param>
+        </member>
+        <member name="P:ETE.Engine.SimulationObject.ActiveSelf">
+            <summary>
+            시뮬레이션 객체 자신의 활성화 여부
+            </summary>
+        </member>
+        <member name="P:ETE.Engine.SimulationObject.ActiveInHierarchy">
+            <summary>
+            장면에서 시뮬레이션 객체의 활성화 여부
+            </summary>
+        </member>
+        <member name="P:ETE.Engine.SimulationObject.Tag">
+            <summary>
+            태그
+            </summary>
+        </member>
+        <member name="P:ETE.Engine.SimulationObject.Layer">
+            <summary>
+            레이어
+            </summary>
+        </member>
+        <member name="P:ETE.Engine.SimulationObject.Scene">
+            <summary>
+            시뮬레이션 객체가 포함되어있는 장면
+            </summary>
+        </member>
+        <member name="T:ETE.Engine.Time">
+            <summary>
+            시뮬레이션 엔진으로부터 시간 정보를 받을 때 사용하는 인터페이스 클래스.
+            </summary>
+        </member>
+        <member name="P:ETE.Engine.Time.TotalElapsedSeconds">
+            <summary>
+            장면이 실행된 총 시간.
+            </summary>
+        </member>
+        <member name="P:ETE.Engine.Time.DeltaSecnods">
+            <summary>
+            전 프레임과 현제 프레임의 시간 차이.
+            </summary>
+        </member>
+        <member name="P:ETE.Engine.Time.FPS">
+            <summary>
+            현제 초당 실행 프레임 수
+            </summary>
+        </member>
+        <member name="P:ETE.Engine.Time.FrameCount">
+            <summary>
+            장면에서 실행된 총 프레임 수
+            </summary>
+        </member>
+        <member name="T:ETE.Engine.Transform">
+            <summary>
+            시뮬레이션 객체의 위치, 회전, 스케일을 표시한다. 장면의 모든 시뮬레이션 객체는 트랜스폼을 가진다.
+            </summary>
+        </member>
+        <member name="F:ETE.Engine.Transform.eulerAngles">
+            <summary>
+            월드 공간에서의 회전(오일러)
+            </summary>
+        </member>
+        <member name="F:ETE.Engine.Transform.position">
+            <summary>
+            월드 공간에서의 위치
+            </summary>
+        </member>
+        <member name="F:ETE.Engine.Transform.rotation">
+            <summary>
+            월드 공간에서의 회전(쿼터니언)
+            </summary>
+        </member>
+        <member name="F:ETE.Engine.Transform.lossyScale">
+            <summary>
+            글로벌 스케일
+            </summary>
+        </member>
+        <member name="M:ETE.Engine.Transform.Translate(ETE.Geometry.Vector3)">
+            <summary>
+            방향과 거리로 트랜스폼을 이동
+            </summary>
+            <param name="translation">이동량</param>
+        </member>
+        <member name="M:ETE.Engine.Transform.Rotate(ETE.Geometry.Vector3)">
+            <summary>
+            트랜스폼읠 회전
+            </summary>
+            <param name="eulerAngles">회전량</param>
+        </member>
+        <member name="M:ETE.Engine.Transform.ReculsiveDescendants(System.Action{ETE.Engine.Transform},System.Func{ETE.Engine.Transform,System.Boolean})">
+            <summary>
+            나를 시작으로 자손을 깊이우선탐색으로 순회하며 act를 실행한다.
+            </summary>
+            <param name="act">실행하고자 하는 내용</param>
+            <param name="reculsiveCondition">act 실행전에 act의 실행 여부를 확인한다. 기본값은 null</param>
+        </member>
+        <member name="M:ETE.Engine.Transform.ReculsiveAncestor(System.Action{ETE.Engine.Transform},System.Func{ETE.Engine.Transform,System.Boolean})">
+            <summary>
+            나를 시작으로 나의 선조를 순회하며 act를 실행한다.
+            </summary>
+            <param name="act">실행하고자 하는 내용</param>
+            <param name="reculsiveCondition">act 실행전에 act의 실행 여부를 확인한다. 기본값은 null</param>
+        </member>
+        <member name="P:ETE.Engine.Transform.LocalEulerAngles">
+            <summary>
+            부모 트랜스폼에 대한 상대적인 회전(오일러)
+            </summary>
+        </member>
+        <member name="P:ETE.Engine.Transform.LocalPosition">
+            <summary>
+            부모 트랜스폼에 대한 상대적인 위치
+            </summary>
+        </member>
+        <member name="P:ETE.Engine.Transform.LocalRotation">
+            <summary>
+            부모 트랜스폼에 대한 상대적인 회전(쿼터니언)
+            </summary>
+        </member>
+        <member name="P:ETE.Engine.Transform.LocalScale">
+            <summary>
+            부모 트랜스폼에 대한 상대적인 스케일
+            </summary>
+        </member>
+        <member name="P:ETE.Engine.Transform.LocalToWorldMatrix">
+            <summary>
+            한 위치를 로컬 공간에서 월드 공간으로 변환하는 행렬
+            </summary>
+        </member>
+        <member name="P:ETE.Engine.Transform.WorldToLocalMatrix">
+            <summary>
+            한 위치를 월드 공간에서 로컬 공간으로 변환하는 행렬
+            </summary>
+        </member>
+        <member name="P:ETE.Engine.Transform.HasChanged">
+            <summary>
+            트랜스폼이 변경되었는지 확인하는 설정 값. 사용자 컴포넌트에서만 사용. false로 설정 후 트랜스폼이 변경되었다면 true를 반환한다.
+            </summary>
+        </member>
+        <member name="P:ETE.Engine.Transform.Root">
+            <summary>
+            계층에서 가장 위에 있는 트랜스폼을 반환합니다.
+            (절대 null을 반환하지 않습니다. 부모 트랜스폼이 없는 경우에 자기자신을 반환합니다.)
+            </summary>
+        </member>
+        <member name="M:ETE.Geometry.Vector3.OrthoNormalize(ETE.Geometry.Vector3[],ETE.Geometry.Vector3[])">
+            <summary>
+            Orthonormalizes a list of vectors.
+            </summary>
+            <param name="destination">The list of orthonormalized vectors.</param>
+            <param name="source">The list of vectors to orthonormalize.</param>
+            <remarks>
+            <para>Orthonormalization is the process of making all vectors orthogonal to each
+            other and making all vectors of unit length. This means that any given vector will
+            be orthogonal to any other given vector in the list.</para>
+            <para>Because this method uses the modified Gram-Schmidt process, the resulting vectors
+            tend to be numerically unstable. The numeric stability decreases according to the vectors
+            position in the list so that the first vector is the most stable and the last vector is the
+            least stable.</para>
+            </remarks>
+            <exception cref="T:System.ArgumentNullException">Thrown when <paramref name="source"/> or <paramref name="destination"/> is <c>null</c>.</exception>
+            <exception cref="T:System.ArgumentOutOfRangeException">Thrown when <paramref name="destination"/> is shorter in length than <paramref name="source"/>.</exception>
+        </member>
+        <member name="T:ETE.MVC.Application">
+            <summary>
+            시뮬레이션 엔진을 실행하는 실행기.
+            </summary>
+        </member>
+        <member name="M:ETE.MVC.Application.SetModel``1">
+            <summary>
+            사용할 모델을 생성하고 설정합니다.
+            </summary>
+            <typeparam name="T">모델의 타입</typeparam>
+            <returns>생성한 모델</returns>
+        </member>
+        <member name="M:ETE.MVC.Application.SetController``1">
+            <summary>
+            사용할 컨트롤러를 생성하고 설정합니다.
+            </summary>
+            <typeparam name="T">컨트롤러의 타입</typeparam>
+            <returns>생성한 컨트롤러</returns>
+        </member>
+        <member name="M:ETE.MVC.Application.AddView``1">
+            <summary>
+            사용할 뷰를 생성하고 추가합니다.
+            </summary>
+            <typeparam name="T">뷰의 타입</typeparam>
+            <returns>생성한 뷰</returns>
+        </member>
+        <member name="M:ETE.MVC.Application.AddSubsystem``1">
+            <summary>
+            사용할 서브시스템을 생성하고 추가합니다.
+            </summary>
+            <typeparam name="T">서브시스템의 타입</typeparam>
+            <returns>생성한 서브시스템</returns>
+        </member>
+        <member name="M:ETE.MVC.Application.Start">
+            <summary>
+            시뮬레이션을 시작합니다.
+            </summary>
+        </member>
+        <member name="M:ETE.MVC.Application.Stop">
+            <summary>
+            시뮬레이션을 정지합니다.
+            </summary>
+        </member>
+        <member name="M:ETE.MVC.Application.Update">
+            <summary>
+            시뮬레이션을 갱신합니다.
+            </summary>
+        </member>
+        <member name="M:ETE.MVC.Application.Pause">
+            <summary>
+            시뮬레이션을 일시 정지합니다.
+            </summary>
+        </member>
+        <member name="M:ETE.MVC.Application.Resume">
+            <summary>
+            시뮬레이션을 다시 시작합니다.
+            </summary>
+        </member>
+        <member name="P:ETE.MVC.Application.Model">
+            <summary>
+            현재 사용 중인 모델
+            </summary>
+        </member>
+        <member name="P:ETE.MVC.Application.IsPlaying">
+            <summary>
+            시뮬레이션 상태를 확인합니다.
+            </summary>
+        </member>
+        <member name="T:ETE.MVC.Controller">
+            <summary>
+            시뮬레이션 컨트롤러
+            </summary>
+        </member>
+        <member name="M:ETE.MVC.Controller.AddProcessor``1">
+            <summary>
+            새로운 프로세서를 추가합니다.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:ETE.MVC.Controller.SetOrder(System.Type,System.Int32)">
+            <summary>
+            프로세서들의 실행 순서를 설정합니다.
+            매 갱신 시점에 설정한 순서대로 프로세서가 실행됩니다.
+            </summary>
+            <param name="type">프로세서의 타입</param>
+            <param name="order">실행 순서</param>
+        </member>
+        <member name="T:ETE.MVC.Model">
+            <summary>
+            시뮬레이션 모델
+            </summary>
+        </member>
+        <member name="M:ETE.MVC.Model.AddObject">
+            <summary>
+            모델에 새로운 시뮬레이션 객체를 추가합니다.
+            </summary>
+            <returns>추가된 시뮬레이션 객체</returns>
+        </member>
+        <member name="M:ETE.MVC.Model.RemoveObject(ETE.Engine.SimulationObject)">
+            <summary>
+            모델에서 시뮬레이션 객체를 제거합니다.
+            </summary>
+            <param name="simObject"></param>
+        </member>
+        <member name="M:ETE.MVC.Model.AddProcessor``1">
+            <summary>
+            모델에 새로운 시뮬레이션 프로세서를 추가합니다.
+            </summary>
+            <typeparam name="T">프로세서의 타입</typeparam>
+            <returns>추가된 시뮬레이션 프로세서</returns>
+        </member>
+        <member name="M:ETE.MVC.Model.RemoveProcessor``1">
+            <summary>
+            모델에 추가된 시뮬레이션 프로세서를 제거합니다.
+            </summary>
+            <typeparam name="T">프로세서의 타입</typeparam>
+        </member>
+        <member name="M:ETE.MVC.Model.FindComponents``1">
+            <summary>
+            모델에 추가된 컴포넌트 중 지정한 타입의 모든 컴포넌트(상속 관계의 컴포넌트 포함)를 검색합니다. 
+            </summary>
+            <typeparam name="T">컴포넌트 타입</typeparam>
+            <returns>컴포넌트 리스트</returns>
+        </member>
+        <member name="M:ETE.MVC.Model.FindAllObjects">
+            <summary>
+            모델이 추가된 모든 시뮬레이션 객체를 검색합니다.
+            </summary>
+            <returns>시뮬레이션 객체 리스트</returns>
+        </member>
+        <member name="T:ETE.MVC.Subsystem">
+            <summary>
+            시뮬레이션 서브시스템, 서브시스템의 기본 클래스
+            </summary>
+        </member>
+        <member name="M:ETE.MVC.Subsystem.Awake">
+            <summary>
+            시작 직전 이벤트
+            </summary>
+        </member>
+        <member name="M:ETE.MVC.Subsystem.Start">
+            <summary>
+            시작 이벤트
+            </summary>
+        </member>
+        <member name="M:ETE.MVC.Subsystem.Process">
+            <summary>
+            실행 이벤트
+            </summary>
+        </member>
+        <member name="M:ETE.MVC.Subsystem.Destroy">
+            <summary>
+            종료 이벤트
+            </summary>
+        </member>
+        <member name="M:ETE.MVC.Subsystem.Asleep">
+            <summary>
+            종료 직후 이벤트
+            </summary>
+        </member>
+        <member name="P:ETE.MVC.Subsystem.App">
+            <summary>
+            이 서브시스템이 추가되어있는 어플리케이션
+            </summary>
+        </member>
+        <member name="T:ETE.MVC.View">
+            <summary>
+            시뮬레이션 뷰
+            </summary>
+        </member>
+        <member name="M:ETE.MVC.View.AddSubsystem(ETE.MVC.Subsystem)">
+            <summary>
+            현재 뷰에서 실행할 서브시스템을 추가합니다.
+            뷰가 추가된 어플리케이션에서 생성된 서브시스템만 추가할 수 있습니다.
+            </summary>
+            <param name="subsystem">서브시스템 인스턴스</param>
+        </member>
+        <member name="M:ETE.MVC.View.RemoveSubsystem(ETE.MVC.Subsystem)">
+            <summary>
+            추가한 서브시스템을 제거합니다.
+            </summary>
+            <param name="subsystem"></param>
+        </member>
+    </members>
+</doc>

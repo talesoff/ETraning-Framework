@@ -1,0 +1,5 @@
+D:\ETraning Framework\Library\Debug\ETR.Simulator.dll
+D:\ETraning Framework\Library\Debug\ETR.Simulator.pdb
+D:\ETraning Framework\Sample\FrameworkSample\ETR.Simulator\obj\Debug\ETR.Simulator.csprojResolveAssemblyReference.cache
+D:\ETraning Framework\Sample\FrameworkSample\ETR.Simulator\obj\Debug\ETR.Simulator.dll
+D:\ETraning Framework\Sample\FrameworkSample\ETR.Simulator\obj\Debug\ETR.Simulator.pdb

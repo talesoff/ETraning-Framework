@@ -1,0 +1,17 @@
+D:\ETraning Framework\Bin\Debug\FrameworkSample.exe.config
+D:\ETraning Framework\Bin\Debug\FrameworkSample.exe
+D:\ETraning Framework\Bin\Debug\FrameworkSample.pdb
+D:\ETraning Framework\Sample\FrameworkSample\FrameworkSample\obj\Debug\FrameworkSample.csprojResolveAssemblyReference.cache
+D:\ETraning Framework\Sample\FrameworkSample\FrameworkSample\obj\Debug\MainWindow.baml
+D:\ETraning Framework\Sample\FrameworkSample\FrameworkSample\obj\Debug\MainWindow.g.cs
+D:\ETraning Framework\Sample\FrameworkSample\FrameworkSample\obj\Debug\SecondWindow.g.cs
+D:\ETraning Framework\Sample\FrameworkSample\FrameworkSample\obj\Debug\App.g.cs
+D:\ETraning Framework\Sample\FrameworkSample\FrameworkSample\obj\Debug\GeneratedInternalTypeHelper.g.cs
+D:\ETraning Framework\Sample\FrameworkSample\FrameworkSample\obj\Debug\FrameworkSample_MarkupCompile.cache
+D:\ETraning Framework\Sample\FrameworkSample\FrameworkSample\obj\Debug\FrameworkSample_MarkupCompile.lref
+D:\ETraning Framework\Sample\FrameworkSample\FrameworkSample\obj\Debug\SecondWindow.baml
+D:\ETraning Framework\Sample\FrameworkSample\FrameworkSample\obj\Debug\FrameworkSample.g.resources
+D:\ETraning Framework\Sample\FrameworkSample\FrameworkSample\obj\Debug\FrameworkSample.Properties.Resources.resources
+D:\ETraning Framework\Sample\FrameworkSample\FrameworkSample\obj\Debug\FrameworkSample.csproj.GenerateResource.Cache
+D:\ETraning Framework\Sample\FrameworkSample\FrameworkSample\obj\Debug\FrameworkSample.exe
+D:\ETraning Framework\Sample\FrameworkSample\FrameworkSample\obj\Debug\FrameworkSample.pdb

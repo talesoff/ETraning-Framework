@@ -1,0 +1,11 @@
+﻿<Window x:Class="GTImporterSample.GLDrawWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:GLctrl="clr-namespace:ETE.Render.EGL;assembly=ETE.Render"
+        Title="GLDrawWindow" Height="300" Width="300">
+    <Grid>
+        <WindowsFormsHost x:Name="GL_WindowsFormsHost"
+                      DockPanel.Dock="Top">
+        </WindowsFormsHost>
+    </Grid>
+</Window>

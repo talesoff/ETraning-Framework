@@ -1,0 +1,307 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>이트레이닝 코어플랫폼 프레임워크 문서화: ETE.Render.Processor.GraphicsSubsystem 클래스 참조</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtreedata.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">이트레이닝 코어플랫폼 프레임워크 문서화
+   &#160;<span id="projectnumber">1.0.0.0</span>
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- 다음에 의해 생성됨 :  Doxygen 1.8.10 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'검색');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>메인&#160;페이지</span></a></li>
+      <li><a href="pages.html"><span>관련된&#160;페이지</span></a></li>
+      <li><a href="namespaces.html"><span>네임스페이스</span></a></li>
+      <li class="current"><a href="annotated.html"><span>클래스</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="검색" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="annotated.html"><span>클래스&#160;목록</span></a></li>
+      <li><a href="classes.html"><span>클래스&#160;색인</span></a></li>
+      <li><a href="hierarchy.html"><span>클래스&#160;계통도</span></a></li>
+      <li><a href="functions.html"><span>클래스&#160;멤버</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('class_e_t_e_1_1_render_1_1_processor_1_1_graphics_subsystem.html','');});
+</script>
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="summary">
+<a href="#pub-methods">Public 멤버 함수</a> &#124;
+<a href="class_e_t_e_1_1_render_1_1_processor_1_1_graphics_subsystem-members.html">모든 멤버 목록</a>  </div>
+  <div class="headertitle">
+<div class="title">ETE.Render.Processor.GraphicsSubsystem 클래스 참조</div>  </div>
+</div><!--header-->
+<div class="contents">
+
+<p>실제 렌더링이 일어나는 서브시스템입니다. OpenGL렌더링을 위한 서브시스템은 EGLSubsystem과 <a class="el" href="class_e_t_e_1_1_render_1_1_processor_1_1_e_g_l_swap_buffers_subsystem.html" title="EGL제어를 위한 서브시스템입니다. OpenGL렌더링의 최종 결과물을 화면에 SwapBuffer 시켜줍니다. OpenGL렌더링을 위한 서브시스템은 EGLSubsystem과 EGLSwapBuffersSubsystem 사이에 위치하여야합니다. GraphicsSubsystem에서 Clear를 실행하여 화면을 지우기 때문에 EGLSubsystem - GraphicsSubsystem - 사용자 렌더링 Subsystem(non Clear) - EGLSwapBufferSubsystem의 순서로 View를 구성하시면 됩니다. ">EGLSwapBuffersSubsystem</a> 사이에 위치하여야합니다. GraphicsSubsystem에서 Clear를 실행하여 화면을 지우기 때문에 <a class="el" href="class_e_t_e_1_1_render_1_1_processor_1_1_e_g_l_subsystem.html" title="EGL제어를 위한 서브시스템입니다. OpenGL렌더링을 위한 Context를 활성화시킵니다. OpenGL렌더링을 위한 서...">EGLSubsystem</a> - <a class="el" href="class_e_t_e_1_1_render_1_1_processor_1_1_graphics_subsystem.html" title="실제 렌더링이 일어나는 서브시스템입니다. OpenGL렌더링을 위한 서브시스템은 EGLSubsystem과 EGLSwapBuffe...">GraphicsSubsystem</a> - 사용자 렌더링 Subsystem(non Clear) - EGLSwapBufferSubsystem의 순서로 View를 구성하시면 됩니다.  
+ <a href="class_e_t_e_1_1_render_1_1_processor_1_1_graphics_subsystem.html#details">더 자세히 ...</a></p>
+<div class="dynheader">
+ETE.Render.Processor.GraphicsSubsystem에 대한 상속 다이어그램 : </div>
+<div class="dyncontent">
+ <div class="center">
+  <img src="class_e_t_e_1_1_render_1_1_processor_1_1_graphics_subsystem.png" usemap="#ETE.Render.Processor.GraphicsSubsystem_map" alt=""/>
+  <map id="ETE.Render.Processor.GraphicsSubsystem_map" name="ETE.Render.Processor.GraphicsSubsystem_map">
+<area href="class_e_t_e_1_1_m_v_c_1_1_subsystem.html" title="시뮬레이션 서브시스템, 서브시스템의 기본 클래스 " alt="ETE.MVC.Subsystem" shape="rect" coords="0,0,257,24"/>
+</map>
+ </div></div>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
+Public 멤버 함수</h2></td></tr>
+<tr class="memitem:a819668fd8a39f1ce5e7950fdd11cce26"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_e_t_e_1_1_render_1_1_processor_1_1_graphics_subsystem.html#a819668fd8a39f1ce5e7950fdd11cce26">Awake</a> ()</td></tr>
+<tr class="memdesc:a819668fd8a39f1ce5e7950fdd11cce26"><td class="mdescLeft">&#160;</td><td class="mdescRight">시작 직전 이벤트  <a href="#a819668fd8a39f1ce5e7950fdd11cce26">더 자세히 ...</a><br /></td></tr>
+<tr class="separator:a819668fd8a39f1ce5e7950fdd11cce26"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afc09eb98129569d5ec4c6e97a6f061f6"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_e_t_e_1_1_render_1_1_processor_1_1_graphics_subsystem.html#afc09eb98129569d5ec4c6e97a6f061f6">Start</a> ()</td></tr>
+<tr class="memdesc:afc09eb98129569d5ec4c6e97a6f061f6"><td class="mdescLeft">&#160;</td><td class="mdescRight">시작 이벤트  <a href="#afc09eb98129569d5ec4c6e97a6f061f6">더 자세히 ...</a><br /></td></tr>
+<tr class="separator:afc09eb98129569d5ec4c6e97a6f061f6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a66b04cfef24547c62f19050539db8e71"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_e_t_e_1_1_render_1_1_processor_1_1_graphics_subsystem.html#a66b04cfef24547c62f19050539db8e71">Process</a> ()</td></tr>
+<tr class="memdesc:a66b04cfef24547c62f19050539db8e71"><td class="mdescLeft">&#160;</td><td class="mdescRight">실행 이벤트  <a href="#a66b04cfef24547c62f19050539db8e71">더 자세히 ...</a><br /></td></tr>
+<tr class="separator:a66b04cfef24547c62f19050539db8e71"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a167293d0dab4e63162b25e293f779643"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_e_t_e_1_1_render_1_1_processor_1_1_graphics_subsystem.html#a167293d0dab4e63162b25e293f779643">Destroy</a> ()</td></tr>
+<tr class="memdesc:a167293d0dab4e63162b25e293f779643"><td class="mdescLeft">&#160;</td><td class="mdescRight">종료 이벤트  <a href="#a167293d0dab4e63162b25e293f779643">더 자세히 ...</a><br /></td></tr>
+<tr class="separator:a167293d0dab4e63162b25e293f779643"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aff7569f75650645763f50082355821e6"><td class="memItemLeft" align="right" valign="top">override void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_e_t_e_1_1_render_1_1_processor_1_1_graphics_subsystem.html#aff7569f75650645763f50082355821e6">Asleep</a> ()</td></tr>
+<tr class="memdesc:aff7569f75650645763f50082355821e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">종료 직후 이벤트  <a href="#aff7569f75650645763f50082355821e6">더 자세히 ...</a><br /></td></tr>
+<tr class="separator:aff7569f75650645763f50082355821e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="inherited"></a>
+추가로 상속된 멤버들</h2></td></tr>
+<tr class="inherit_header properties_class_e_t_e_1_1_m_v_c_1_1_subsystem"><td colspan="2" onclick="javascript:toggleInherit('properties_class_e_t_e_1_1_m_v_c_1_1_subsystem')"><img src="closed.png" alt="-"/>&#160;<a class="el" href="class_e_t_e_1_1_m_v_c_1_1_subsystem.html">ETE.MVC.Subsystem</a>(으)로부터 상속된 속성</td></tr>
+<tr class="memitem:aeba7bb683c05c71cde643e31dbb24f51 inherit properties_class_e_t_e_1_1_m_v_c_1_1_subsystem"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_e_t_e_1_1_m_v_c_1_1_application.html">Application</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_e_t_e_1_1_m_v_c_1_1_subsystem.html#aeba7bb683c05c71cde643e31dbb24f51">App</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:aeba7bb683c05c71cde643e31dbb24f51 inherit properties_class_e_t_e_1_1_m_v_c_1_1_subsystem"><td class="mdescLeft">&#160;</td><td class="mdescRight">이 서브시스템이 추가되어있는 어플리케이션  <a href="#aeba7bb683c05c71cde643e31dbb24f51">더 자세히 ...</a><br /></td></tr>
+<tr class="separator:aeba7bb683c05c71cde643e31dbb24f51 inherit properties_class_e_t_e_1_1_m_v_c_1_1_subsystem"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table>
+<a name="details" id="details"></a><h2 class="groupheader">상세한 설명</h2>
+<div class="textblock"><p>실제 렌더링이 일어나는 서브시스템입니다. OpenGL렌더링을 위한 서브시스템은 EGLSubsystem과 <a class="el" href="class_e_t_e_1_1_render_1_1_processor_1_1_e_g_l_swap_buffers_subsystem.html" title="EGL제어를 위한 서브시스템입니다. OpenGL렌더링의 최종 결과물을 화면에 SwapBuffer 시켜줍니다. OpenGL렌더링을 위한 서브시스템은 EGLSubsystem과 EGLSwapBuffersSubsystem 사이에 위치하여야합니다. GraphicsSubsystem에서 Clear를 실행하여 화면을 지우기 때문에 EGLSubsystem - GraphicsSubsystem - 사용자 렌더링 Subsystem(non Clear) - EGLSwapBufferSubsystem의 순서로 View를 구성하시면 됩니다. ">EGLSwapBuffersSubsystem</a> 사이에 위치하여야합니다. GraphicsSubsystem에서 Clear를 실행하여 화면을 지우기 때문에 <a class="el" href="class_e_t_e_1_1_render_1_1_processor_1_1_e_g_l_subsystem.html" title="EGL제어를 위한 서브시스템입니다. OpenGL렌더링을 위한 Context를 활성화시킵니다. OpenGL렌더링을 위한 서...">EGLSubsystem</a> - <a class="el" href="class_e_t_e_1_1_render_1_1_processor_1_1_graphics_subsystem.html" title="실제 렌더링이 일어나는 서브시스템입니다. OpenGL렌더링을 위한 서브시스템은 EGLSubsystem과 EGLSwapBuffe...">GraphicsSubsystem</a> - 사용자 렌더링 Subsystem(non Clear) - EGLSwapBufferSubsystem의 순서로 View를 구성하시면 됩니다. </p>
+</div><h2 class="groupheader">멤버 함수 문서화</h2>
+<a class="anchor" id="aff7569f75650645763f50082355821e6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">override void ETE.Render.Processor.GraphicsSubsystem.Asleep </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>종료 직후 이벤트 </p>
+
+<p><a class="el" href="class_e_t_e_1_1_m_v_c_1_1_subsystem.html#a3ffd9059d7d87a4177cf6cc030abd5b1">ETE.MVC.Subsystem</a>(으)로부터 재구현되었습니다.</p>
+
+</div>
+</div>
+<a class="anchor" id="a819668fd8a39f1ce5e7950fdd11cce26"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">override void ETE.Render.Processor.GraphicsSubsystem.Awake </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>시작 직전 이벤트 </p>
+
+<p><a class="el" href="class_e_t_e_1_1_m_v_c_1_1_subsystem.html#ac0969af30ad85b13468f772cd52bc06b">ETE.MVC.Subsystem</a>(으)로부터 재구현되었습니다.</p>
+
+</div>
+</div>
+<a class="anchor" id="a167293d0dab4e63162b25e293f779643"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">override void ETE.Render.Processor.GraphicsSubsystem.Destroy </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>종료 이벤트 </p>
+
+<p><a class="el" href="class_e_t_e_1_1_m_v_c_1_1_subsystem.html#a483f926c7b5dad901f8d15cf11ad81a0">ETE.MVC.Subsystem</a>(으)로부터 재구현되었습니다.</p>
+
+</div>
+</div>
+<a class="anchor" id="a66b04cfef24547c62f19050539db8e71"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">override void ETE.Render.Processor.GraphicsSubsystem.Process </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>실행 이벤트 </p>
+
+<p><a class="el" href="class_e_t_e_1_1_m_v_c_1_1_subsystem.html#a750a9c163b68ba0511bfcc57e050ce06">ETE.MVC.Subsystem</a>(으)로부터 재구현되었습니다.</p>
+
+</div>
+</div>
+<a class="anchor" id="afc09eb98129569d5ec4c6e97a6f061f6"></a>
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">override void ETE.Render.Processor.GraphicsSubsystem.Start </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">virtual</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>시작 이벤트 </p>
+
+<p><a class="el" href="class_e_t_e_1_1_m_v_c_1_1_subsystem.html#a629fee3bdaf1ae2aac1753827a4e7f41">ETE.MVC.Subsystem</a>(으)로부터 재구현되었습니다.</p>
+
+</div>
+</div>
+<hr/>이 클래스에 대한 문서화 페이지는 다음의 파일로부터 생성되었습니다.:<ul>
+<li>GraphicsSubsystem.cs</li>
+</ul>
+</div><!-- contents -->
+</div><!-- doc-content -->
+<!-- start footer part -->
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="namespace_e_t_e.html">ETE</a></li><li class="navelem"><a class="el" href="namespace_e_t_e_1_1_render.html">Render</a></li><li class="navelem"><a class="el" href="namespace_e_t_e_1_1_render_1_1_processor.html">Processor</a></li><li class="navelem"><a class="el" href="class_e_t_e_1_1_render_1_1_processor_1_1_graphics_subsystem.html">GraphicsSubsystem</a></li>
+    <li class="footer">다음에 의해 생성됨 : 
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.10 </li>
+  </ul>
+</div>
+</body>
+</html>
